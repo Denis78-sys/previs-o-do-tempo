@@ -3,9 +3,8 @@
     class="home-template bg-cover bg-no-repeat bg-center min-h-screen"
     :style="backgroundStyle"
   >
-    <Logo />
+    <Header />
     <TituloPrincipal />
-    <Pesquisa />
   </div>
 </template>
 
