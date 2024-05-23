@@ -18,6 +18,11 @@ module.exports = {
         'md': '3px 3px 6px rgba(0, 0, 0, 0.5)',
         'lg': '4px 4px 8px rgba(0, 0, 0, 0.5)',
       },
+      colors: {
+        azul: '#033159',
+        white: '#FFFFFF',
+        cinza:'#D0D5DD'
+      }
     },
   },
   plugins: [
