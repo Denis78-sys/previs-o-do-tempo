@@ -1,6 +1,7 @@
 <template>
     <div class="home-template bg-cover bg-no-repeat bg-center min-h-screen" :style="backgroundStyle">
       <Logo />
+      <Lupa />
     </div>
   </template>
   
