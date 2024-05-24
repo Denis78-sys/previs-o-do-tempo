@@ -5,7 +5,7 @@
       <div class="relative">
         <select
           v-model="selectedState"
-          class="block appearance-none w-20 bg-azul text-white px-4 py-2 pr-8 rounded-l-md leading-tight focus:outline-none focus:bg-azul focus:border-azul"
+          class="block appearance-none w-full bg-azul text-white px-4 py-2 pr-8 rounded-l-md leading-tight focus:outline-none focus:bg-azul focus:border-azul"
         >
           <option value="" disabled>UF</option>
           <option v-for="state in states" :key="state" :value="state">

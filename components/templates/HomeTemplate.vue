@@ -11,8 +11,12 @@
         <div class="lg:mt-24 md:mt-20 sm:mt-12">
           <TituloPrincipal />
         </div>
+        <div class="lg:mt-24 md:mt-20 sm:mt-12 flex justify-center">
+          <Previsao />
+        </div>
       </Container>
     </div>
+    <Footer />
   </div>
 </template>
 
