@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div class="flex items-center p-2">
+    <div class="flex items-center">
       <!-- Dropdown de UF -->
       <div class="relative">
         <select

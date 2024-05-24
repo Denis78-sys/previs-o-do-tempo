@@ -22,7 +22,12 @@ module.exports = {
         azul: '#033159',
         white: '#FFFFFF',
         cinza:'#D0D5DD'
-      }
+      },
+      screens: {
+        'sm': '360px',
+        'md': '720px',
+        'lg': '1440px',
+      },
     },
   },
   plugins: [
