@@ -59,6 +59,7 @@
   </template>
   
   <script>
+  import { mapActions } from 'vuex';
   export default {
     data() {
       return {
@@ -96,6 +97,7 @@
       };
     },
     methods: {
+      ...mapActions(['fetchDataDodosTempo']),
       search() {
         // eslint-disable-next-line no-console
         console.log(`UF: ${this.selectedState}, Cidade: ${this.city}`);
@@ -105,7 +107,8 @@
         } else if (this.city === "") {
           alert('Digite a cidade');
         } else {
-          alert(`UF:${this.selectedState}, CIDADE:${this.city}`);
+          /* alert(`UF:${this.selectedState}, CIDADE:${this.city}`); */
+            this.fetchDataDodosTempo({cidade: this.city, uf:this.selectedState})
         }
       },
     },
