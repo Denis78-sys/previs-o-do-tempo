@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-sm mx-auto sm:w-full bg-gray-200 rounded-lg shadow-lg p-6 flex items-center justify-between"
+    class="max-w-sm drop-shadow-md mx-auto sm:w-full bg-gray-200 rounded-lg shadow-lg p-6 flex items-center justify-between"
   >
     <div>
       <h2 class="text-xl font-semibold text-blue-900">Goiânia - GO - BR</h2>
