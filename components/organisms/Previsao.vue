@@ -12,7 +12,7 @@
       <p class="text-4xl font-bold text-blue-900 mt-2">
         {{ dadosTempLoc?.main.temp }} °C
       </p>
-      <p class="text-blue-900 mt-2">Humidade {{dadosTempLoc?.main.humidity}}%</p>
+      <p class="text-blue-900 mt-2">Umidade <strong>{{dadosTempLoc?.main.humidity}}%</strong></p>
     </div>
     <div class="flex flex-col items-center">
       <img

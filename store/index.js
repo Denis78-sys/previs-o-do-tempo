@@ -56,7 +56,7 @@ export const actions = {
       const chaveApi = "732cde9e868e4cef9a585a83eb9114ce";
 
       const resposta = await this.$axios.$get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${chaveApi}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt&appid=${chaveApi}`
       );
       commit("SET_DADOS_TEMPO", resposta);
     } catch (error) {
