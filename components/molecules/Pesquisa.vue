@@ -34,6 +34,7 @@
         type="text"
         placeholder="Digite a cidade"
         class="appearance-none border w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white rounded-r-md"
+        @keyup.enter="search"
       />
       <div class="absolute inset-y-0 right-0 flex items-center pr-3">
         <button

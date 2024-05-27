@@ -21,7 +21,8 @@ module.exports = {
       colors: {
         azul: '#033159',
         white: '#FFFFFF',
-        cinza:'#D0D5DD'
+        cinza:'#D0D5DD',
+        erro: "#FF0000"
       },
       screens: {
         'sm': '360px',

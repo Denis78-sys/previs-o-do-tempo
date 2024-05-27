@@ -4,6 +4,7 @@
 export const state = () => ({
   dadosCidade: null, // Armazena os dados da cidade.
   dadosTempLoc: null,
+  statusPrevisao: false,
   carregandoDados: false, // Indica se os dados estão sendo carregados.
   error: null, // Armazena qualquer erro que ocorra durante a requisição.
 });
@@ -15,6 +16,9 @@ export const mutations = {
     state.dadosCidade = data;
   },
 
+  SET_STATUS_PREVISAO(state, status){
+    state.statusPrevisao = status;
+  },
   SET_DADOS_TEMPO(state, data) {
     state.dadosTempLoc = data;
   },
@@ -41,9 +45,16 @@ export const actions = {
       const resposta = await this.$axios.$get(
         `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},${uf},BR&limit=1&appid=${chaveApi}`
       );
-      commit("SET_DADOS_CIDADE", resposta[0]);
+      if (resposta.length > 0) {
+        commit("SET_DADOS_CIDADE", resposta[0]);
+        commit('SET_STATUS_PREVISAO', true);
+      } else {
+        commit('SET_STATUS_PREVISAO', false);
+        commit("SET_ERRO", "Cidade não encontrada");
+      }
     } catch (error) {
       commit("SET_ERRO", error);
+      commit('SET_STATUS_PREVISAO', false);
     } finally {
       commit("SET_CARREGANDO_DADOS", false); // Define o estado de carregamento como falso.
     }
@@ -74,4 +85,5 @@ export const getters = {
   dadosTempLoc: (state) => state.dadosTempLoc,
   carregandoDados: (state) => state.carregandoDados, // Retorna o estado de carregamento.
   error: (state) => state.erro, // Retorna o estado de erro.
+  statusPrevisao: (state) => state.statusPrevisao
 };
