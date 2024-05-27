@@ -16,7 +16,7 @@ export const mutations = {
     state.dadosCidade = data;
   },
 
-  SET_STATUS_PREVISAO(state, status){
+  SET_STATUS_PREVISAO(state, status) {
     state.statusPrevisao = status;
   },
   SET_DADOS_TEMPO(state, data) {
@@ -40,21 +40,21 @@ export const actions = {
     try {
       commit("SET_CARREGANDO_DADOS", true); // Define o estado de carregamento como verdadeiro.
       commit("SET_ERRO", null); // Reseta qualquer erro anterior.
-      const chaveApi = "732cde9e868e4cef9a585a83eb9114ce";
+
       // Faz uma requisição GET para a API OpenWeatherMap com a cidade e código do estado fornecidos.
       const resposta = await this.$axios.$get(
-        `/geo/1.0/direct?q=${cidade},${uf},BR&limit=1&appid=${chaveApi}`
+        `/geo/1.0/direct?q=${cidade},${uf},BR&limit=1&appid=${this.$config.apiKey}`
       );
       if (resposta.length > 0) {
         commit("SET_DADOS_CIDADE", resposta[0]);
-        commit('SET_STATUS_PREVISAO', true);
+        commit("SET_STATUS_PREVISAO", true);
       } else {
-        commit('SET_STATUS_PREVISAO', false);
+        commit("SET_STATUS_PREVISAO", false);
         commit("SET_ERRO", "Cidade não encontrada");
       }
     } catch (error) {
       commit("SET_ERRO", error);
-      commit('SET_STATUS_PREVISAO', false);
+      commit("SET_STATUS_PREVISAO", false);
     } finally {
       commit("SET_CARREGANDO_DADOS", false); // Define o estado de carregamento como falso.
     }
@@ -64,10 +64,9 @@ export const actions = {
     try {
       commit("SET_CARREGANDO_DADOS", true); // Define o estado de carregamento como verdadeiro.
       commit("SET_ERRO", null); // Reseta qualquer erro anterior.
-      const chaveApi = "732cde9e868e4cef9a585a83eb9114ce";
 
       const resposta = await this.$axios.$get(
-        `/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt&appid=${chaveApi}`
+        `/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt&appid=${this.$config.apiKey}`
       );
       commit("SET_DADOS_TEMPO", resposta);
     } catch (error) {
@@ -85,5 +84,5 @@ export const getters = {
   dadosTempLoc: (state) => state.dadosTempLoc,
   carregandoDados: (state) => state.carregandoDados, // Retorna o estado de carregamento.
   error: (state) => state.erro, // Retorna o estado de erro.
-  statusPrevisao: (state) => state.statusPrevisao
+  statusPrevisao: (state) => state.statusPrevisao,
 };
