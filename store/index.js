@@ -43,7 +43,7 @@ export const actions = {
       const chaveApi = "732cde9e868e4cef9a585a83eb9114ce";
       // Faz uma requisição GET para a API OpenWeatherMap com a cidade e código do estado fornecidos.
       const resposta = await this.$axios.$get(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},${uf},BR&limit=1&appid=${chaveApi}`
+        `/geo/1.0/direct?q=${cidade},${uf},BR&limit=1&appid=${chaveApi}`
       );
       if (resposta.length > 0) {
         commit("SET_DADOS_CIDADE", resposta[0]);
@@ -67,7 +67,7 @@ export const actions = {
       const chaveApi = "732cde9e868e4cef9a585a83eb9114ce";
 
       const resposta = await this.$axios.$get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt&appid=${chaveApi}`
+        `/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt&appid=${chaveApi}`
       );
       commit("SET_DADOS_TEMPO", resposta);
     } catch (error) {
