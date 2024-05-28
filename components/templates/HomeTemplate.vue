@@ -1,9 +1,9 @@
 <template>
   <div
-    class="home-template bg-cover bg-no-repeat bg-center min-h-screen justify-center"
+    class="home-template flex flex-col min-h-screen bg-cover bg-no-repeat bg-center"
     :style="backgroundStyle"
   >
-    <div class="flex justify-center">
+    <div class="flex-grow flex justify-center">
       <Container>
         <div class="lg:mt-12 md:mt-10 sm:mt-9">
           <Header />
@@ -16,7 +16,7 @@
         </div>
       </Container>
     </div>
-    <Footer />
+    
   </div>
 </template>
 

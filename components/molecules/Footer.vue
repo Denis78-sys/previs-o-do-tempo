@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <footer class="bg-azul py-4 flex justify-center inset-x-0 bottom-0 absolute">
+  <div class="bg-azul py-4 flex justify-center inset-x-0 bottom-0 absolute">
     <Container>
       <div class="text-right text-white text-xs">
         Desenvolvido por <span class="font-bold">Denis Marques</span>
       </div>
     </Container>
-  </footer>
+  </div>
 </template>
 
 <script>

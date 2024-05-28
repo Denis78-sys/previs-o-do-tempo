@@ -2,7 +2,7 @@
 <template>
   <div>
     <div
-      v-if="statusPrevisao"
+      v-if="statusPrevisao === 1"
       class="max-w-sm drop-shadow-md mx-auto sm:w-full bg-azul rounded-lg shadow-lg p-6 flex items-center justify-between"
     >
       <div>
@@ -29,8 +29,34 @@
         </p>
       </div>
     </div>
-    <div v-else>
+    <div v-else-if="statusPrevisao === 2">
       <div class="text-erro">Dados não encontrados!</div>
+    </div>
+    <div v-else>
+      <div
+        class="lg:mt-12 md:mt-10 sm:mt-8 p-6 rounded text-center bg-azul px-4 mb-6"
+      >
+        <p class="text-lg text-cinza text-sm">
+          <strong
+            >Bem-vindo ao nosso site de previsão do tempo! Para obter as
+            informações meteorológicas da sua cidade, siga as instruções
+            abaixo:</strong
+          >
+          <br /><br />
+          1. Selecione o estado (UF) da sua cidade no menu suspenso.
+          <br />
+          2. Digite o nome da cidade no campo de texto.
+          <br />
+          3. Clique no ícone de busca ou pressione Enter para visualizar a
+          previsão do tempo.
+          <br /><br />
+          Esperamos que você tenha uma ótima experiência utilizando nosso
+          serviço!
+        </p>
+        <div class="text-center text-cinza text-xs font-extralight mt-8">
+          Desenvolvido por <span class="font-bold">Denis Marques</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>

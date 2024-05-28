@@ -4,7 +4,7 @@
 export const state = () => ({
   dadosCidade: null, // Armazena os dados da cidade.
   dadosTempLoc: null,
-  statusPrevisao: false,
+  statusPrevisao: 0,
   carregandoDados: false, // Indica se os dados estão sendo carregados.
   error: null, // Armazena qualquer erro que ocorra durante a requisição.
 });
@@ -47,14 +47,14 @@ export const actions = {
       );
       if (resposta.length > 0) {
         commit("SET_DADOS_CIDADE", resposta[0]);
-        commit("SET_STATUS_PREVISAO", true);
+        commit("SET_STATUS_PREVISAO", 1);
       } else {
-        commit("SET_STATUS_PREVISAO", false);
+        commit("SET_STATUS_PREVISAO", 2);
         commit("SET_ERRO", "Cidade não encontrada");
       }
     } catch (error) {
       commit("SET_ERRO", error);
-      commit("SET_STATUS_PREVISAO", false);
+      commit("SET_STATUS_PREVISAO", 2);
     } finally {
       commit("SET_CARREGANDO_DADOS", false); // Define o estado de carregamento como falso.
     }

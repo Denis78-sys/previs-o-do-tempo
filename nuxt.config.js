@@ -54,6 +54,7 @@ export default {
         autoprefixer: {},
       },
     },
+    
   },
   server: {
     host: '0.0.0.0',
