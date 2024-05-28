@@ -120,7 +120,9 @@ export default {
               latitude: this.dadosCidade.lat,
               longitude: this.dadosCidade.lon,
             });
-          } 
+          } else {
+            alert("Não foi possível encontrar a cidade");
+          }
         });
       }
     },

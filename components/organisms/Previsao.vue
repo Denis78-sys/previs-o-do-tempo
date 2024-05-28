@@ -49,14 +49,6 @@ export default {
       return new Date().toLocaleDateString("pt-BR", options);
     },
   },
-  mounted() {
-    this.getWeather(); // Chama a função para obter os dados do clima ao montar o componente
-  },
-  methods:{
-    getWeather() {
-      this.$store.dispatch('fetchDadosTempoPorLocalizacao');
-    },
-  }
 };
 </script>
 
