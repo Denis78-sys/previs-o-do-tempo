@@ -3,7 +3,7 @@ export default {
   head: {
     title: "Previsão do Tempo",
     htmlAttrs: {
-      lang: "en",
+      lang: "pt-br",
     },
     meta: [
       { charset: "utf-8" },
@@ -55,8 +55,5 @@ export default {
       },
     },
     
-  },
-  server: {
-    host: '0.0.0.0',
   },
 };
