@@ -48,6 +48,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, { isServer }) {
+      if (isServer) {
+        config.externals = [
+          ...config.externals || [],
+          ({ context, request }, callback) => {
+            if (/^node-fetch-native$/.test(request)) {
+              return callback(null, 'commonjs ' + request);
+            }
+            callback();
+          }
+        ];
+      }
+    },
+    transpile: ['node-fetch-native'],
     postcss: {
       plugins: {
         tailwindcss: {},
