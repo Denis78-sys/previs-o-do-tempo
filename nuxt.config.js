@@ -21,53 +21,37 @@ export default {
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: [ { path: '@/components', pathPrefix: false}],
+  components: [{ path: '@/components', pathPrefix: false}],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     "@nuxtjs/eslint-module",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     '@nuxtjs/dotenv',
   ],
 
-   // Adiciona a variável de ambiente ao contexto do cliente
-   publicRuntimeConfig: {
+  // Adiciona a variável de ambiente ao contexto do cliente
+  publicRuntimeConfig: {
     apiKey: process.env.API_KEY
   },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: "https://api.openweathermap.org",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, { isServer }) {
-      if (isServer) {
-        config.externals = [
-          ...config.externals || [],
-          ({ context, request }, callback) => {
-            if (/^node-fetch-native$/.test(request)) {
-              return callback(null, 'commonjs ' + request);
-            }
-            callback();
-          }
-        ];
-      }
-    },
-    transpile: ['node-fetch-native'],
+    transpile: ['node-fetch-native'], // Certifique-se de transpilar o módulo node-fetch-native
     postcss: {
       plugins: {
         tailwindcss: {},
         autoprefixer: {},
       },
     },
-    
   },
 };
